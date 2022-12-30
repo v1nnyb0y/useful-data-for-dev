@@ -1,6 +1,6 @@
 # Table of content
 
-- [MS SQL SERVER](#MS-SQL-by-docker)
+- [MS SQL](#MS-SQL-by-docker)
 - [Keycloak](#Keycloak-by-docker)
 
 
