@@ -23,6 +23,7 @@ docker run \
 ```
 Login: sa
 Password: thisisstrongpassword
+```
 
 # MS SQL by docker
 
