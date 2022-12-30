@@ -11,8 +11,7 @@
 
 ```
 docker run \
-  -e "ACCEPT_EULA=Y" \
-  -e "MSSQL_PID=Developer" \
+  -e "ACCEPT_EULA=1" \
   -e "MSSQL_SA_PASSWORD=thisisstrongpassword" \
   -p 1433:1433 --name local-mssql --hostname local-mssql \
   -d v1nnyb0y/local-images:azuresqledge_2022
