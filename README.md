@@ -18,6 +18,12 @@ docker run \
   -d v1nnyb0y/local-images:azuresqledge_2022
 ```
 
+2) Then, connect using:
+
+```
+Login: sa
+Password: thisisstrongpassword
+
 # MS SQL by docker
 
 1) Execute following cmd:
