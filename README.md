@@ -14,7 +14,7 @@ docker run \
   -e "ACCEPT_EULA=1" \
   -e "MSSQL_SA_PASSWORD=thisisstrongpassword" \
   -p 1433:1433 --name local-mssql --hostname local-mssql \
-  -d v1nnyb0y/local-images:azuresqledge_2022
+  v1nnyb0y/local-images:azuresqledge_2022
 ```
 
 2) Then, connect using:
@@ -34,7 +34,7 @@ docker run \
   -e "MSSQL_PID=Developer" \
   -e "MSSQL_SA_PASSWORD=thisisstrongpassword" \
   -p 1433:1433 --name local-mssql --hostname local-mssql \
-  -d v1nnyb0y/local-images:mssql_2022
+  v1nnyb0y/local-images:mssql_2022
 ```
 
 2) Then, connect using:
