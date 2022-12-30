@@ -10,10 +10,10 @@
 1) Execute following cmd:
 
 ```
-docker run \
-  -e "ACCEPT_EULA=1" \
+docker run --cap-add SYS_PTRACE \
+  -e "ACCEPT_EULA=1"  \
   -e "MSSQL_SA_PASSWORD=thisisstrongpassword" \
-  -p 1433:1433 --name local-mssql --hostname local-mssql \
+  -p 1433:1433 --name local-azure-edge --hostname local-azure-edge \
   v1nnyb0y/local-images:azuresqledge_2022
 ```
 
