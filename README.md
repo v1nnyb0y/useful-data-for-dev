@@ -59,7 +59,7 @@ docker run --name keycloak \
   -e 'PORT_KEYCLOAK=8080' \
   -e 'DB_VENDOR=mssql' \
   -e 'DB_ADDR=mssql' \
-  -e 'DB_DATABASE=paragon' \
+  -e 'DB_DATABASE=keycloak' \
   -e 'DB_USER=sa' \
   -e 'DB_PASSWORD=Str#ng_Passw#rd' \
   -p 9090:8080 \
