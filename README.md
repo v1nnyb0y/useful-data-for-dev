@@ -45,3 +45,30 @@ Password: Str#ng_Passw#rd
 ```
 
 # Keycloak by docker
+
+1) Execute following cmd:
+
+Comments:
+- DB_VENDOR values: mssql; postgres
+```
+docker run --name keycloak \
+  -e 'KC_HEALTH_ENABLED=true' \
+  -e 'KC_METRICS_ENABLED=true' \
+  -e 'KEYCLOAK_ADMIN=admin' \
+  -e 'KEYCLOAK_ADMIN_PASSWORD=admin' \
+  -e 'PORT_KEYCLOAK=8080' \
+  -e 'DB_VENDOR=mssql' \
+  -e 'DB_ADDR=mssql' \
+  -e 'DB_DATABASE=paragon' \
+  -e 'DB_USER=sa' \
+  -e 'DB_PASSWORD=Str#ng_Passw#rd' \
+  -p 9090:8080 \
+  v1nnyb0y/local-images:keycloak_20.0.2
+```
+
+2) Then, connect using:
+
+```
+Login: admin
+Password: admin
+```
