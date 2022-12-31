@@ -57,13 +57,12 @@ docker run --name keycloak \
   -e 'KEYCLOAK_ADMIN=admin' \
   -e 'KEYCLOAK_ADMIN_PASSWORD=admin' \
   -e 'PORT_KEYCLOAK=8080' \
-  -e 'DB_VENDOR=mssql' \
-  -e 'DB_ADDR=mssql' \
-  -e 'DB_DATABASE=keycloak' \
-  -e 'DB_USER=sa' \
-  -e 'DB_PASSWORD=Str#ng_Passw#rd' \
+  -e 'KC_DB=mssql' \
+  -e 'KC_DB_URL=jdbc:sqlserver://localhost:9080;database=keycloak' \
+  -e 'KC_DB_USERNAME=sa' \
+  -e 'KC_DB_PASSWORD=Str#ng_Passw#rd' \
   -p 9090:8080 \
-  v1nnyb0y/local-images:keycloak_20.0.2
+  v1nnyb0y/local-images:keycloak_20.0.2 start-dev
 ```
 
 2) Then, connect using:
