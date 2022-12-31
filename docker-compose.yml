@@ -1,0 +1,63 @@
+version: "3.9"
+    
+name: "dl-aws-example"
+
+networks:
+  local-keycloak:
+    driver: bridge
+    
+services: 
+  mssql_service:
+    image: v1nnyb0y/local-images:azuresqledge_2022
+    container_name: dl-azuresqledge-service
+    restart: unless-stopped
+    cap_add: [ 'SYS_PTRACE' ]
+    hostname: aws_example_db
+    environment:
+      ACCEPT_EULA: 1
+      MSSQL_SA_PASSWORD: Str#ng_Passw#rd
+    ports:
+      - "9080:1433"
+    networks: 
+     - local-keycloak
+  
+  mssql_data_loader:
+    image: mcr.microsoft.com/mssql-tools:latest
+    restart: on-failure
+    stdin_open: true
+    environment:
+      MSSQL_SA_PASSWORD: Str#ng_Passw#rd
+      MSSQL_SA: sa
+      MSSQL_HOST: aws_example_db
+    network_mode: service:mssql_service
+    command: ["/opt/mssql-tools/bin/sqlcmd", "-S", "aws_example_db", "-U", "sa", "-P", "Str#ng_Passw#rd", "-i", "./opt/mssql/load-data.sql"]
+    volumes:
+      - ./load-data.sql:/opt/mssql/load-data.sql
+    depends_on:
+      - mssql_service
+  
+  keycloak_service: 
+    image: v1nnyb0y/local-images:keycloak_20.0.2
+    container_name: dl-keycloak-service
+    command:
+      - start-dev
+    restart: unless-stopped
+    environment:
+      KC_HEALTH_ENABLED: true
+      KC_METRICS_ENABLED: true
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      PORT_KEYCLOAK: 8080
+      KC_DB: mssql
+      KC_DB_URL: jdbc:sqlserver://aws_example_db:1433;database=keycloak;encrypt=true;trustServerCertificate=true;
+      KC_DB_USERNAME: keycloak 
+      KC_DB_PASSWORD: Password!23
+    depends_on:
+      mssql_service:
+        condition: service_started
+      mssql_data_loader:
+        condition: service_completed_successfully
+    networks:
+      - local-keycloak
+    ports:
+      - "9090:8080"
