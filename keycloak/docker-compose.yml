@@ -8,7 +8,7 @@ networks:
     
 services: 
   mssql_service:
-    image: v1nnyb0y/local-images:azuresqledge_2022
+    image: mcr.microsoft.com/azure-sql-edge:latest
     container_name: dl-azuresqledge-service
     restart: unless-stopped
     cap_add: [ 'SYS_PTRACE' ]
@@ -37,7 +37,7 @@ services:
       - mssql_service
   
   keycloak_service: 
-    image: v1nnyb0y/local-images:keycloak_20.0.2
+    image: quay.io/keycloak/keycloak:latest
     container_name: dl-keycloak-service
     command:
       - start-dev
