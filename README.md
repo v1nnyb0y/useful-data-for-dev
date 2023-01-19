@@ -10,7 +10,7 @@
 1) Execute following cmd:
 
 ```
-docker run -d --rm --name pg-docker \
+docker run -d --rm --name postgresql \
   -e POSTGRES_PASSWORD=password \
   -p 5432:5432 \
   -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data \
