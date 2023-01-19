@@ -14,7 +14,7 @@ docker run --cap-add SYS_PTRACE --name azuresqledge \
   -e 'ACCEPT_EULA=1' \
   -e 'MSSQL_SA_PASSWORD=Str#ng_Passw#rd' \
   -p 9080:1433 \
-   v1nnyb0y/local-images:azuresqledge_2022
+   mcr.microsoft.com/azure-sql-edge:latest
 ```
 
 2) Then, connect using:
@@ -34,7 +34,7 @@ docker run \
   -e "MSSQL_PID=Developer" \
   -e "MSSQL_SA_PASSWORD=Str#ng_Passw#rd" \
   -p 1433:1433 --name local-mssql --hostname local-mssql \
-  v1nnyb0y/local-images:mssql_2022
+  mcr.microsoft.com/mssql/server:latest
 ```
 
 2) Then, connect using:
@@ -62,7 +62,7 @@ docker run --name keycloak \
   -e 'KC_DB_USERNAME=sa' \
   -e 'KC_DB_PASSWORD=Str#ng_Passw#rd' \
   -p 9090:8080 \
-  v1nnyb0y/local-images:keycloak_20.0.2 start-dev
+  quay.io/keycloak/keycloak:latest
 ```
 
 2) Then, connect using:
