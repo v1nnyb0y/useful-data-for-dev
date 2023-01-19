@@ -1,8 +1,28 @@
 # Table of content
 
+- [PostgreSQL](#PostgreSQL)
 - [Azure SQL Edge](#Azure-SQL-Edge)
 - [MS SQL](#MS-SQL-by-docker) - It's not supported right now
 - [Keycloak](#Keycloak-by-docker)
+
+# PostgreSQL
+
+1) Execute following cmd:
+
+```
+docker run -d --rm --name pg-docker \
+  -e POSTGRES_PASSWORD=password \
+  -p 5432:5432 \
+  -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data \
+  postgres:latest
+```
+
+2) Then, connect using:
+
+```
+Login: postgres
+Password: password
+```
 
 
 # Azure SQL Edge
