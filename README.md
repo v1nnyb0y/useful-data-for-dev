@@ -2,8 +2,6 @@
 
 - [Kafka YML](#Kafka)
 - [PostgreSQL](#PostgreSQL)
-- [Azure SQL Edge](#Azure-SQL-Edge)
-- [MS SQL](#MS-SQL-by-docker) - It's not supported right now
 - [Keycloak](#Keycloak-by-docker)
 
 # Kafka
@@ -59,46 +57,6 @@ docker run -d --rm --name postgresql \
 ```
 Login: postgres
 Password: password
-```
-
-
-# Azure SQL Edge
-
-1) Execute following cmd:
-
-```
-docker run --cap-add SYS_PTRACE --name azuresqledge \
-  -e 'ACCEPT_EULA=1' \
-  -e 'MSSQL_SA_PASSWORD=Str#ng_Passw#rd' \
-  -p 9080:1433 \
-   mcr.microsoft.com/azure-sql-edge:latest
-```
-
-2) Then, connect using:
-
-```
-Login: sa
-Password: Str#ng_Passw#rd
-```
-
-# MS SQL by docker
-
-1) Execute following cmd:
-
-```
-docker run \
-  -e "ACCEPT_EULA=Y" \
-  -e "MSSQL_PID=Developer" \
-  -e "MSSQL_SA_PASSWORD=Str#ng_Passw#rd" \
-  -p 1433:1433 --name local-mssql --hostname local-mssql \
-  mcr.microsoft.com/mssql/server:latest
-```
-
-2) Then, connect using:
-
-```
-Login: sa
-Password: Str#ng_Passw#rd
 ```
 
 # Keycloak by docker
